@@ -27,6 +27,8 @@ class BooksController < ApplicationController
   end
 
   def destroy
+    Book.delete(params[:format])
+    redirect_to books_index_path
   end
 
   private

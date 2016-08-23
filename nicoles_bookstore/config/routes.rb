@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   put 'books/update'
 
-  delete 'books/destroy'
+  get 'books/destroy'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
