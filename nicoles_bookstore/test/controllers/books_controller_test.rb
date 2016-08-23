@@ -6,18 +6,13 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get show" do
-    get books_show_url
-    assert_response :success
-  end
+  # test "should get show" do
+  #   get books_show_url
+  #   assert_response :success
+  # end
 
   test "should get new" do
     get books_new_url
-    assert_response :success
-  end
-
-  test "should get create" do
-    get books_create_url
     assert_response :success
   end
 
@@ -26,13 +21,13 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get update" do
-    get books_update_url
+  test "should put update" do
+    put books_update_url
     assert_response :success
   end
 
-  test "should get destroy" do
-    get books_destroy_url
+  test "should delete destroy" do
+    delete books_destroy_url
     assert_response :success
   end
 

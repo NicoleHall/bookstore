@@ -5,12 +5,19 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params["format"])
+
   end
 
   def new
+    @book = Book.new
   end
 
   def create
+    @book = Book.new(book_params)
+    back = Location.find_by(storage_type: "back")
+    @book.location = back
+    @book.save
+    redirect_to books_index_path
   end
 
   def edit
@@ -22,9 +29,9 @@ class BooksController < ApplicationController
   def destroy
   end
 
-  # private
-  #   def book_params
-  #     params.require(:book).permit(:title)
-  #   end
+  private
+    def book_params
+      params.require(:book).permit(:title)
+    end
 
 end

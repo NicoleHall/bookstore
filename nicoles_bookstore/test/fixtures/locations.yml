@@ -1,10 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  storage_type: "back"
-
-two:
-  storage_type: "shelf"
-
-three:
-  storage_type: "table"
+# one:
+#   storage_type: "back"
+#
+# two:
+#   storage_type: "shelf"
+#
+# three:
+#   storage_type: "table"
