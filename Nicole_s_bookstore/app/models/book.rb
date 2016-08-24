@@ -1,4 +1,4 @@
 class Book < ApplicationRecord
-  belongs_to :location
-
+  has_one :location
+  has_one :exact_placement, through: :location  
 end
