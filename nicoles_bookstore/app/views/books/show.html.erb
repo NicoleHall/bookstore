@@ -1,7 +1,0 @@
-<h1>Books#show</h1>
-
-Title: <%= @book.title %><br>
-Storage Location: <%= @book.location.storage_type %><br>
-<%= link_to "delete this title", books_destroy_path(@book) %>
-<br>
-<%= link_to "Back to list of all books", books_index_path, url: {action: "destroy"} %>

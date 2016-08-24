@@ -1,7 +1,0 @@
-<h1>Books_New_Path</h1>
-<%#= form_for(books_new_path(@book)) do |f| %>
-<%= form_for @book, url: {action: "create"} do |f| %>
-  <%= f.label :title %><br />
-  <%= f.text_field :title %>
-  <%= f.submit "Create"%>
-<% end %>
