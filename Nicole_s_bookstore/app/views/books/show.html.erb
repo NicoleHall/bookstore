@@ -1,0 +1,14 @@
+<div class="container">
+
+  <h1>Book Detail Page</h1>
+
+  Title: <%= @book.title %><br>
+  Storage Location: <%= @book.location.storage_type %><br>
+  <%= link_to "delete this title", book_path(@book), :method => 'delete' %>
+  <br>
+  <button type="button" class="btn btn-secondary"><%= link_to "Back to list of all books", books_path %></button>
+
+  <button type="button" class="btn btn-success"><%= link_to "Move This Book", edit_book_path(@book) %></button>
+
+  <button type="button" class="btn btn-danger"><%= link_to "Delete This Book", book_path(@book), :method => 'delete' %></button>
+</div>

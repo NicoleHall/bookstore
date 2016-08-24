@@ -1,6 +1,10 @@
 <div class="container">
     <h1>All Books</h1>
     <% @books.each do |book| %>
-      Title: <%= book.title %> | Location: <%= book.location.storage_type %>
+      Title: <%= link_to book.title, book_path(book) %> | Location: <%= book.location.storage_type %><br>
     <% end %>
+
+    <br>
+    <hr>
+    <button type="button" class="btn btn-secondary"><%= link_to "Add A Book To The Bookstore", new_book_path %></button>
 </div>
