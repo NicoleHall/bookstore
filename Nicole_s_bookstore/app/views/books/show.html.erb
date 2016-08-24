@@ -3,7 +3,7 @@
   <h1>Book Detail Page</h1>
 
   Title: <%= @book.title %><br>
-  Storage Location: <%= @book.location.storage_type %><br>
+  Storage Location: <%= Location.find(@book.location_id).storage_type %><br>
   
   <br>
   <button type="button" class="btn btn-secondary"><%= link_to "Back to list of all books", books_path %></button>
