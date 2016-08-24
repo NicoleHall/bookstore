@@ -21,9 +21,16 @@ class BooksController < ApplicationController
   end
 
   def edit
+    @book = Book.find(params[:id])
+
   end
 
   def update
+    new_storage_type = params[:book][:location_id]
+    new_location_id = Location.find_by(storage_type: new_storage_type).id
+    book = Book.find(params[:id])
+    book.update_attributes(location_id: new_location_id)
+    redirect_to book_path(book)
   end
 
   def destroy
@@ -35,7 +42,5 @@ class BooksController < ApplicationController
   def book_params
     params.require(:book).permit(:title)
   end
-
-
 
 end
