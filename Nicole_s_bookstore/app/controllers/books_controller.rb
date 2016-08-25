@@ -23,7 +23,7 @@ class BooksController < ApplicationController
   end
 
   def update
-    new_storage_type = params[:book][:location_id]
+    new_storage_type = params[:book][:location_id].downcase
     new_location_id = Location.find_by(storage_type: new_storage_type).id
     book = Book.find(params[:id])
     book.update_attributes(location_id: new_location_id)
