@@ -9,10 +9,8 @@ class BooksController < ApplicationController
   end
 
   def create
-    @book = Book.new(book_params)
-    back = Location.find_by(storage_type: "back")
-    @book.location = back
-    @book.save
+    back_id = Location.find_by(storage_type: "back").id
+    @book = Book.create(title: params[:book][:title], location_id: back_id)
     redirect_to books_path
   end
 
