@@ -35,6 +35,10 @@ class BooksController < ApplicationController
     redirect_to books_path
   end
 
+  def inventory
+
+  end
+
   private
   def book_params
     params.require(:book).permit(:title)

@@ -1,0 +1,11 @@
+<div class="container">
+  <h1>Welcome To Nicole's Bookstore</h1>
+  <h2>Inventory</h2>
+  <% Location.all.each do |location| %>
+  <h3><%= location.name %></h3><br>
+  <% location.books.each do |book| %>
+  <%= link_to book.title, book_path(book) %>
+  <% end %>
+  <% end %>
+
+</div>
