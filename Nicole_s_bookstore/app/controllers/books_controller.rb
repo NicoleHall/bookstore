@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-
+before_action :check_shelf_storage, only: [:update]
   def index
     @books = Book.all
   end
@@ -9,9 +9,10 @@ class BooksController < ApplicationController
   end
 
   def create
+    #all books added to the database have a default location of "The Back"
     back_id = Location.find_by(storage_type: "back").id
     @book = Book.create(title: params[:book][:title], location_id: back_id)
-    redirect_to books_path
+    redirect_to root_path
   end
 
   def show
@@ -35,12 +36,20 @@ class BooksController < ApplicationController
   end
 
   def inventory
-
+    @locations = Location.all
   end
 
   private
   def book_params
     params.require(:book).permit(:title)
+  end
+
+  def check_shelf_storage
+    location = Location.find(params[:book][:location_id])
+    if location.storage_type == "shelf" && location.books.count >= 6
+      flash[:danger] = "Shelf Is Full"
+      redirect_to location_path(location)
+    end
   end
 
 end
