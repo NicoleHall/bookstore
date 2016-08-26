@@ -3,7 +3,7 @@
   <h1>Book Detail Page</h1>
 
   Title: <%= @book.title %><br>
-  Storage Location: <%= Location.find(@book.location_id).storage_type %><br>
+  Storage Location: <%= link_to Location.find(@book.location_id).name, location_path(@book.location_id) %><br>
 
   <button type="button" class="btn btn-secondary"><%= link_to "Delete This Book", book_path(@book), :method => 'delete' %></button>
 </div>

@@ -1,12 +1,12 @@
 require 'test_helper'
 
 class BookCreationTest < ActionDispatch::IntegrationTest
-  
+
   test "a book can be created and user is redirected to index" do
     visit new_book_path
     fill_in "Title", with: "The Passionate Programmer"
     click_button "Create"
-    assert_equal current_path, books_path
+    assert_equal current_path, root_path
     book = Book.find_by(title: "The Passionate Programmer")
     assert book.save
     assert_equal "back", Location.find(book.location_id).storage_type

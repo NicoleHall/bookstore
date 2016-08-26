@@ -1,6 +1,9 @@
 <div class="container">
   <%= render 'layouts/navbar' %>
   <h1>All Books</h1>
+  <p class="turquoiseblue">
+    Click on the hyperlinked location to move a book
+  </p>
   <% @books.each do |book| %>
     Title: <%= link_to book.title, book_path(book) %> | Location: <%= link_to Location.find(book.location_id).name, location_path(book.location_id)%><br>
   <% end %><br>

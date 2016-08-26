@@ -4,14 +4,14 @@
   <h2><%= @location.name %></h2>
 
   <% @location.books.each do |book|%>
-    <%= book.title %>
+    <%= link_to book.title, book_path(book) %>
     <ul>
 
     <%= form_for book do |f| %>
     <select name="book[location_id]">
       <% Location.all.each do |location| %>
 
-    <option value=<%= location.id %>><%=location.name%></option> 
+    <option value=<%= location.id %>><%=location.name%></option>
       <% end %>
       <%=f.submit("Save changes") %>
       </select>
