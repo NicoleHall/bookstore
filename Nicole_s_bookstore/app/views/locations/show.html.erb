@@ -1,0 +1,24 @@
+<div class="container">
+
+  <h1>Location Details Page</h1>
+  <h2><%= @location.name %></h2>
+
+  <% @location.books.each do |book|%>
+    <%= book.title %>
+    <ul>
+
+    <%= form_for book do |f| %>
+    <select name="book[location_id]">
+      <% Location.all.each do |location| %>
+       <option value=<%= location.id %>><%=location.name%></option>
+      <% end %>
+      <%=f.submit("Save changes") %>
+      </select>
+      <% end %>
+
+
+  </ul>
+  <% end %>
+</div>
+
+</div>

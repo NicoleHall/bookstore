@@ -23,11 +23,10 @@ class BooksController < ApplicationController
   end
 
   def update
-    new_storage_type = params[:book][:location_id].downcase
-    new_location_id = Location.find_by(storage_type: new_storage_type).id
+    new_location_id = params[:book][:location_id]
     book = Book.find(params[:id])
     book.update_attributes(location_id: new_location_id)
-    redirect_to book_path(book)
+    redirect_to root_path
   end
 
   def destroy
