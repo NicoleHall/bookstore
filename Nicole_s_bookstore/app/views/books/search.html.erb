@@ -1,0 +1,11 @@
+<div class="container">
+<%= render 'layouts/navbar' %>
+  <div class="pushdown">
+
+    <%= form_for :book_search, :url => url_for(:controller => 'books', :action => 'search_result') do %>
+      <%= label_tag(:q, "Search for:") %>
+      <%= text_field_tag(:q) %>
+      <%= submit_tag("Search") %>
+    <% end %>
+  </div>
+</div>

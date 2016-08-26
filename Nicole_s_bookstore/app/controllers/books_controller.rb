@@ -35,6 +35,20 @@ before_action :check_shelf_storage, only: [:update]
     redirect_to books_path
   end
 
+  def search
+  end
+
+  def search_result
+    searched_title = params[:q]
+    book = Book.find_by(title: searched_title)
+      if book
+        redirect_to book_path(book)
+      else
+        flash[:notice] = "we do not sell #{searched_title} at Nicole's Bookstore"
+        redirect_to root_path
+      end
+  end
+
 
   private
   def book_params
