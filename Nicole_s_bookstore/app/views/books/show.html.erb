@@ -5,10 +5,5 @@
   Title: <%= @book.title %><br>
   Storage Location: <%= Location.find(@book.location_id).storage_type %><br>
 
-  <br>
-  <button type="button" class="btn btn-secondary"><%= link_to "Back to list of all books", books_path %></button>
-
-  <button type="button" class="btn btn-success"><%= link_to "Move This Book", edit_book_path(@book) %></button>
-
-  <button type="button" class="btn btn-danger"><%= link_to "Delete This Book", book_path(@book), :method => 'delete' %></button>
+  <button type="button" class="btn btn-secondary"><%= link_to "Delete This Book", book_path(@book), :method => 'delete' %></button>
 </div>

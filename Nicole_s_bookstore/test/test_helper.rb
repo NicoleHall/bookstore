@@ -6,29 +6,19 @@ class ActiveSupport::TestCase
   include Capybara::DSL
 
   def setup
-    Location.create!([{
-      storage_type: "back"
-    },
-    {
-      storage_type: "shelf"
-    },
-    {
-      storage_type: "table"
-    }])
-    the_back_id = Location.find_by(storage_type: "shelf").id
-    book = Book.create(title: "Eloquent Ruby", location_id: the_back_id)
+    Location.destroy_all
 
-    shelf = Location.find_by(storage_type: "shelf").id
-    table = Location.find_by(storage_type: "table").id
+    Location.create!(storage_type: "back", name: "the back")
 
     6.times do |num|
-      ExactPlacement.create!(name: "shelf #{num + 1}", location_id: shelf)
+      Location.create!(storage_type: "shelf", name: "shelf #{num + 1}")
     end
 
     4.times do |num|
-      ExactPlacement.create!(name: "table #{num + 1}", location_id: table)
+      Location.create!(storage_type: "table", name: "table #{num + 1}")
     end
 
-    book 
+    Book.create(title: "Eloquent Ruby", location_id: (Location.first.id))  
+
   end
 end
