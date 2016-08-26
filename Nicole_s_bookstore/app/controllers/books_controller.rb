@@ -35,9 +35,6 @@ before_action :check_shelf_storage, only: [:update]
     redirect_to books_path
   end
 
-  def inventory
-    @locations = Location.all
-  end
 
   private
   def book_params
