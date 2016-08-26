@@ -16,6 +16,19 @@ class ActiveSupport::TestCase
       storage_type: "table"
     }])
     the_back_id = Location.find_by(storage_type: "shelf").id
-    Book.create(title: "Eloquent Ruby", location_id: the_back_id)
+    book = Book.create(title: "Eloquent Ruby", location_id: the_back_id)
+
+    shelf = Location.find_by(storage_type: "shelf").id
+    table = Location.find_by(storage_type: "table").id
+
+    6.times do |num|
+      ExactPlacement.create!(name: "shelf #{num + 1}", location_id: shelf)
+    end
+
+    4.times do |num|
+      ExactPlacement.create!(name: "table #{num + 1}", location_id: table)
+    end
+
+    book 
   end
 end

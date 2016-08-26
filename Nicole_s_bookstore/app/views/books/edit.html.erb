@@ -5,7 +5,7 @@
       <%= form_for(@book) do |f| %>
 
         <%= f.label :where_would_you_like_to_move_this_book %>
-        <%= f.text_field :location_id, class: 'form-control' %>
+        <%= f.text_field :location_id, value: '', class: 'form-control' %>
 
         please type "table" "shelf" or "back"
         <%= f.submit "Save changes", class: "btn btn-primary" %>
