@@ -1,4 +1,5 @@
 <div class="container">
+  <%= render 'layouts/navbar' %>
     <h1>All Books</h1>
     <% @books.each do |book| %>
       Title: <%= link_to book.title, book_path(book) %> | Location: <%= Location.find(book.location_id).storage_type %><br>
